@@ -1,0 +1,38 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+# Goのビルドコマンド
+cmd = "go build -o ./tmp/main ."
+# ビルド後の実行コマンド
+bin = "./tmp/main"
+# ビルド前の処理 (必要であれば)
+# pre_cmd = []
+# ビルドの遅延 (秒単位)
+delay = 1000 # 1秒 (ミリ秒単位)
+
+[run]
+# 環境変数 (必要であれば)
+# env = []
+
+[watch]
+# 監視するディレクトリ
+paths = [
+    ".",
+]
+# 除外するディレクトリ/ファイル
+# excluded_dir = ["tmp", "vendor", "node_modules"]
+# 監視するファイル拡張子
+exts = ["go", "tpl", "tmpl", "html"]
+
+[log]
+# ログ出力のプレフィックス
+# main_log = "air: "
+# buildログの表示
+# build_log = "build: "
+# その他ログの表示
+# other_log = "other: "
+
+[misc]
+# colors = true
+# log_time = false

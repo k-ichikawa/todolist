@@ -1,27 +1,22 @@
-version: '3.8'
-
 services:
   backend:
-    build: ./backend
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
     ports:
       - "8080:8080"
-    # environment:
+    environment:
+      GIN_MODE: debug
       # - DB_HOST=db
       # - DB_USER=root
       # - DB_PASSWORD=password
       # - DB_NAME=todo_app
+    command: /usr/local/bin/air -c ./.air.toml
     depends_on:
       db:
         condition: service_healthy
-    networks:
-      - app-network
-
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:80"
-    depends_on:
-      - backend
     networks:
       - app-network
 
