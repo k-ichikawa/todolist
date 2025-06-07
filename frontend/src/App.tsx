@@ -11,7 +11,7 @@ interface Todo {
 function App() {
     const [todos, setTodos] = useState<Todo[]>([])
     const [newTodoTitle, setNewTodoTitle] = useState<string>('')
-    const apiUrl = 'http://localhost:8080/api/todos';
+    const apiUrl = 'http://localhost:8080/todos';
 
     useEffect(() => {
         fetchTodos();
